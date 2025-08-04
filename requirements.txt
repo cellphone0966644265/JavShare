@@ -1,0 +1,6 @@
+ffmpeg
+libtorrent
+openpyxl
+pandas
+requests
+tqdm
