@@ -178,16 +178,21 @@ def workflow_url_magnet_download(args, config):
 
 def workflow_torrent_download(args, config):
     """Quy trình cho Torrent (duyệt thư mục trước)."""
+    print(">>> DEBUG: Đã vào trong hàm workflow_torrent_download.") # DÒNG DEBUG 1
     torrent_dir = config['torrent_dir']
     if not os.path.isdir(torrent_dir):
         print(f"Lỗi: Thư mục torrent '{torrent_dir}' không tồn tại."); return
 
+    print(f">>> DEBUG: Sẽ đọc các file từ thư mục: {torrent_dir}") # DÒNG DEBUG 2
     torrent_files = [f for f in os.listdir(torrent_dir) if f.endswith('.torrent')]
+    
+    print(f">>> DEBUG: Danh sách file .torrent tìm thấy: {torrent_files}") # DÒNG DEBUG 3
     if not torrent_files:
         print(f"Không tìm thấy file .torrent nào trong '{torrent_dir}'."); return
         
-    print(f"Tìm thấy {len(torrent_files)} file .torrent để xử lý.")
-
+    print(f"Tìm thấy {len(torrent_files)} file .torrent để xử lý.") # Dòng code gốc
+    
+    print(">>> DEBUG: Sẽ bắt đầu vòng lặp xử lý file.") # DÒNG DEBUG 4
     for i, torrent_filename in enumerate(sorted(torrent_files)):
         print(f"\n--- Bắt đầu xử lý file {i+1}/{len(torrent_files)}: {torrent_filename} ---")
         torrent_path = os.path.join(torrent_dir, torrent_filename)
@@ -198,14 +203,17 @@ def workflow_torrent_download(args, config):
             print(f" -> Tải torrent thất bại: {download_result.get('message')}"); continue
 
         newly_downloaded_files = download_result.get('files', [])
-        if not newly_downloaded_files: print(" -> Downloader không trả về file nào."); continue
+        if not newly_downloaded_files:
+            print(" -> Downloader không trả về file nào."); continue
 
         filtered_files = step_filter_files(newly_downloaded_files, args.min_size_mb)
-        if not filtered_files: print(" -> Không còn file nào sau khi lọc."); continue
+        if not filtered_files:
+            print(" -> Không còn file nào sau khi lọc."); continue
 
         base_name, _ = os.path.splitext(torrent_filename)
         renamed_files = step_rename_files(filtered_files, base_name)
-        if not renamed_files: print(" -> Dừng xử lý file này do đổi tên thất bại."); continue
+        if not renamed_files:
+            print(" -> Dừng xử lý file này do đổi tên thất bại."); continue
 
         processed_files = step_split_files(renamed_files, args.split_max_gb, args.split_at_times)
         step_upload_files(processed_files, args.uploaders, config)
