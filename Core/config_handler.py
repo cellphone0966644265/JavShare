@@ -10,40 +10,46 @@ def get_config(category_name):
     # BẠN CẦN THAY ĐỔI CÁC ĐƯỜNG DẪN BÊN DƯỚI CHO ĐÚNG VỚI MÁY CỦA BẠN
     CONFIG = {
         'Censored': {
-            'excel_file': '/home/nha/JavShare/Censored/Link/Censored.xlsx',
-            'download_dir': '/home/nha/JavShare/Censored/Download/',
-            'save_dir': '/home/nha/JavShare/Censored/Video/',
-            'torrent_dir': '/home/nha/JavShare/Censored/Link/Torrent/UnDownloaded'
+            'excel_file': '/content/drive/MyDrive/Censored/Link/Censored.xlsx',
+            'download_dir': '/content/drive/MyDrive/Censored/Download/',
+            'save_dir': '/content/drive/MyDrive/Censored/Video/',
+            'torrent_dir': '/content/drive/MyDrive/Censored/Link/Torrent/UnDownloaded',
+            'torrent_downloaded_dir': '/content/drive/MyDrive/Censored/Link/Torrent/Downloaded'
         },
         'Demosaic': {
-            'excel_file': '/home/nha/JavShare/Demosaic/Link/Demosaic.xlsx',
-            'download_dir': '/home/nha/JavShare/Demosaic/Download/',
-            'save_dir': '/home/nha/JavShare/Demosaic/Video/',
-            'torrent_dir': '/home/nha/JavShare/Demosaic/Link/Torrent/UnDownloaded'
+            'excel_file': '/content/drive/MyDrive/Demosaic/Link/Demosaic.xlsx',
+            'download_dir': '/content/drive/MyDrive/Demosaic/Download/',
+            'save_dir': '/content/drive/MyDrive/Demosaic/Video/',
+            'torrent_dir': '/content/drive/MyDrive/Demosaic/Link/Torrent/UnDownloaded',
+            'torrent_downloaded_dir': '/content/drive/MyDrive/Demosaic/Link/Torrent/Downloaded'
         },
         'Uncensored': {
-            'excel_file': '/home/nha/JavShare/Uncensored/Link/Uncensored.xlsx',
-            'download_dir': '/home/nha/JavShare/Uncensored/Download/',
-            'save_dir': '/home/nha/JavShare/Uncensored/Video/',
-            'torrent_dir': '/home/nha/JavShare/Uncensored/Link/Torrent/UnDownloaded'
+            'excel_file': '/content/drive/MyDrive/Uncensored/Link/Uncensored.xlsx',
+            'download_dir': '/content/drive/MyDrive/Uncensored/Download/',
+            'save_dir': '/content/drive/MyDrive/Uncensored/Video/',
+            'torrent_dir': '/content/drive/MyDrive/Uncensored/Link/Torrent/UnDownloaded',
+            'torrent_downloaded_dir': '/content/drive/MyDrive/Uncensored/Link/Torrent/Downloaded'
         },
         'VrCensored': {
-            'excel_file': '/home/nha/JavShare/VrCensored/Link/VrCensored.xlsx',
-            'download_dir': '/home/nha/JavShare/VrCensored/Download/',
-            'save_dir': '/home/nha/JavShare/VrCensored/Video/',
-            'torrent_dir': '/home/nha/JavShare/VrCensored/Link/Torrent/UnDownloaded'
+            'excel_file': '/content/drive/MyDrive/VrCensored/Link/VrCensored.xlsx',
+            'download_dir': '/content/drive/MyDrive/VrCensored/Download/',
+            'save_dir': '/content/drive/MyDrive/VrCensored/Video/',
+            'torrent_dir': '/content/drive/MyDrive/VrCensored/Link/Torrent/UnDownloaded',
+            'torrent_downloaded_dir': '/content/drive/MyDrive/VrCensored/Link/Torrent/Downloaded'
         },
         'VrDemosaic': {
-            'excel_file': '/home/nha/JavShare/VrDemosaic/Link/VrDemosaic.xlsx',
-            'download_dir': '/home/nha/JavShare/VrDemosaic/Download/',
-            'save_dir': '/home/nha/JavShare/VrDemosaic/Video/',
-            'torrent_dir': '/home/nha/JavShare/VrDemosaic/Link/Torrent/UnDownloaded'
+            'excel_file': '/content/drive/MyDrive/VrDemosaic/Link/VrDemosaic.xlsx',
+            'download_dir': '/content/drive/MyDrive/VrDemosaic/Download/',
+            'save_dir': '/content/drive/MyDrive/VrDemosaic/Video/',
+            'torrent_dir': '/content/drive/MyDrive/VrDemosaic/Link/Torrent/UnDownloaded',
+            'torrent_downloaded_dir': '/content/drive/MyDrive/VrDemosaic/Link/Torrent/Downloaded'
         },
         'VrUncensored': {
-            'excel_file': '/home/nha/JavShare/VrUncensored/Link/VrUncensored.xlsx',
-            'download_dir': '/home/nha/JavShare/VrUncensored/Download/',
-            'save_dir': '/home/nha/JavShare/VrUncensored/Video/',
-            'torrent_dir': '/home/nha/JavShare/VrUncensored/Link/Torrent/UnDownloaded'
+            'excel_file': '/content/drive/MyDrive/VrUncensored/Link/VrUncensored.xlsx',
+            'download_dir': '/content/drive/MyDrive/VrUncensored/Download/',
+            'save_dir': '/content/drive/MyDrive/VrUncensored/Video/',
+            'torrent_dir': '/content/drive/MyDrive/VrUncensored/Link/Torrent/UnDownloaded',
+            'torrent_downloaded_dir': '/content/drive/MyDrive/VrUncensored/Link/Torrent/Downloaded'
         }
     }
     

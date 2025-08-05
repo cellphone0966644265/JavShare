@@ -33,6 +33,22 @@ def get_files_from_dir(folder_path):
             all_files.append(os.path.join(root, file))
     return list(all_files)
 
+def step_move_torrent(file_path, config_data):
+    """Di chuyển file .torrent đã xử lý sang thư mục 'Downloaded'."""
+    torrent_downloaded_dir = config_data.get('torrent_downloaded_dir')
+    if not torrent_downloaded_dir:
+        print("Lỗi: Không tìm thấy đường dẫn 'torrent_downloaded_dir' trong cấu hình.")
+        return
+
+    if not os.path.exists(torrent_downloaded_dir):
+        os.makedirs(torrent_downloaded_dir, exist_ok=True)
+
+    try:
+        shutil.move(file_path, os.path.join(torrent_downloaded_dir, os.path.basename(file_path)))
+        print(f" -> Đã di chuyển file .torrent: {os.path.basename(file_path)} -> {torrent_downloaded_dir}")
+    except Exception as e:
+        print(f" -> Lỗi khi di chuyển file .torrent {os.path.basename(file_path)}: {e}")
+
 # --- CÁC BƯỚC XỬ LÝ CHÍNH ---
 
 def step_filter_files(file_list, min_size_mb):
@@ -304,6 +320,11 @@ def main():
             if not download_result or download_result.get('status') != 'success':
                 print(" -> Tải về thất bại. Dừng xử lý tác vụ này.")
                 continue
+
+            # BƯỚC XỬ LÝ MỚI: Di chuyển file .torrent
+            if args.workflow == 'torrent-download' and 'torrent_downloaded_dir' in config_data:
+                torrent_path_to_move = os.path.join(config_data.get('torrent_dir'), task_name)
+                step_move_torrent(torrent_path_to_move, config_data)
 
             files_after = set(get_files_from_dir(download_dir))
             new_files = list(files_after - files_before)
